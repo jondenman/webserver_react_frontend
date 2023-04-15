@@ -2,21 +2,22 @@ import { Card, Col, Row } from 'antd';
 import './CardGallery.css';
 import Product from './Product';
 import { useEffect, useState } from 'react';
-import GetProducts from './GetProducts';
+import GetAllProducts from '../api/services/ProductService';
 
 const { Meta } = Card;
 
 const CardGallery = () => {
     const [products, setProducts] = useState();
+    const [isLoaded, setIsLoaded] = useState(false);
+    const afterComplete = (resData) => {
+        setProducts(resData);
+        setIsLoaded(true);
+    }
+
     useEffect(() => {
-        console.log('Fetching...');
-        fetch('http://127.0.0.1:8000/api/cards/')
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data.cards);
-                setProducts(data.cards);
-            })
+        GetAllProducts(afterComplete);
     }, []);
+
     return (
         <div className='cardContainer'>
             <Row gutter={16}>

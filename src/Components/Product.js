@@ -5,7 +5,7 @@ const { Meta } = Card;
 const Product = ({title, description, url, alt, key}) => {
     return (
         <Card
-            style={{margin:5}}
+            style={{margin:10}}
             hoverable
             cover={<img
                     alt={alt}

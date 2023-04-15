@@ -12,13 +12,6 @@ const NavBar = () => {
             theme="dark"
             mode="horizontal"
             defaultSelectedKeys={['Home']}
-            // items={menuItems.map((item, index) => {
-            //     const key = index + 1;
-            //     return {
-            //     key,
-            //     label: `${item}`,
-            //     };
-            // })} 
             >
                 <MenuItem key='Home'>Home</MenuItem>
                 <MenuItem key='About'>About</MenuItem>
