@@ -1,6 +1,7 @@
 import { Menu } from 'antd';
 import MenuItem from 'antd/es/menu/MenuItem';
 import { SmileOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     const menuItems = new Array();
@@ -13,10 +14,16 @@ const NavBar = () => {
             mode="horizontal"
             defaultSelectedKeys={['Home']}
             >
-                <MenuItem key='Home'>Home</MenuItem>
-                <MenuItem key='About'>About</MenuItem>
+                <MenuItem key='Home'>
+                    <Link to="/">Home</Link>
+                </MenuItem>
+                <MenuItem key='About'>
+                    <Link to="/about">About</Link>
+                </MenuItem>
                 <MenuItem key='Profile' style={{ marginLeft: 'auto' }}>
-                    <SmileOutlined />
+                    <Link to="/profile">
+                        <SmileOutlined />
+                    </Link>
                 </MenuItem>
             </Menu>
             
