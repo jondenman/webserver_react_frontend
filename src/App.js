@@ -1,5 +1,6 @@
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import NavBar from './Components/NavBar';
+import CardGallery from './Components/CardGallery';
 
 const { Header, Content, Footer } = Layout;
 const App = () => {
@@ -17,14 +18,7 @@ const App = () => {
           padding: '0 50px',
         }}
       >
-        <div
-          className="site-layout-content"
-          style={{
-            background: colorBgContainer,
-          }}
-        >
-          Content
-        </div>
+        <CardGallery/>
       </Content>
       <Footer
         style={{
