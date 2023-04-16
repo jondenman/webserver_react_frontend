@@ -4,6 +4,7 @@ import CardGallery from './Components/CardGallery';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Home from './Components/Home';
 import About from './Components/About';
+import Profile from './Components/Profile';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const { Header, Content, Footer } = Layout;
@@ -23,6 +24,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         </Layout>
       </BrowserRouter>
