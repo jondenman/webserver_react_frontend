@@ -28,7 +28,7 @@ const CardGallery = () => {
                             description={card.description}
                             url={card.image_url}
                             alt={card.name}
-                            key={ndx}
+                            id={card.id}
                             />
                         </Col>
                     ) : null
