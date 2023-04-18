@@ -6,6 +6,7 @@ const { Meta } = Card;
 
 const ProductDetail = ({title, description, url, alt, id}) => {
     const [editing, setEditing] = useState(false);
+    const [notFound, setNotFound] = useState(false);
 
     return (
         <>

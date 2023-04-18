@@ -8,9 +8,14 @@ import api from '../api/services/ProductService';
 const ProductPage = () => {
     const [product, setProduct] = useState();
     const [isLoaded, setIsLoaded] = useState(false);
+    const [notFound, setNotFound] = useState(false);
     const {id} = useParams();
     const afterComplete = (resData) => {
-        setProduct(resData);
+        if (resData === 404) {
+            setNotFound(true);
+        } else {
+            setProduct(resData);
+        }
         setIsLoaded(true);
     }
 
@@ -19,7 +24,9 @@ const ProductPage = () => {
     }, []);
 
     return (
+
         <Row gutter={16} justify={'center'}>
+                { notFound ? <p>The Product for id {id} does not exist.</p> : null}
                 {product ?
                     <Col span={8} xs={24} sm={12} md={8}>
                         <ProductDetail title={product.name}
