@@ -2,7 +2,7 @@ import { Card, Col, Row } from 'antd';
 import './CardGallery.css';
 import Product from './Product';
 import { useEffect, useState } from 'react';
-import GetAllProducts from '../api/services/ProductService';
+import api from '../api/services/ProductService';
 
 const { Meta } = Card;
 
@@ -15,7 +15,7 @@ const CardGallery = () => {
     }
 
     useEffect(() => {
-        GetAllProducts(afterComplete);
+        api.getAllProducts(afterComplete);
     }, []);
 
     return (

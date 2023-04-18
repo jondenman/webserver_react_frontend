@@ -14,11 +14,9 @@ const Product = ({title, description, url, alt, id}) => {
                     />}
         >
             <Meta title={title} description={description}/>
-            <Link to={`/customers/${id}`}>
+            <Link to={`/products/${id}`}>
                 <FileTextOutlined style={{float: 'right'}} />
             </Link>
-            
-            
         </Card>
     )
 }

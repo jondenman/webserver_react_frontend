@@ -1,6 +1,6 @@
 import { client } from "../client";
 
-const getAllProducts = (afterComplete) => {
+export const getAllProducts = (afterComplete) => {
     client.get('cards/')
     .then(response => {
         console.log(response.data.cards);
@@ -8,4 +8,16 @@ const getAllProducts = (afterComplete) => {
     });
 };
 
-export default getAllProducts;
+const getProduct = (afterComplete, id) => {
+    client.get(`cards/${id}`)
+    .then(response => {
+        console.log(response.data.card);
+        afterComplete(response.data.card);
+    })
+}
+
+const api = {
+    getAllProducts: getAllProducts,
+    getProduct: getProduct
+}
+export default api;
