@@ -1,7 +1,7 @@
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 import CardGallery from './CardGallery';
 
-const { Header, Content, Footer } = Layout;
+const { Content, Footer } = Layout;
 export default () =>
     <>
         <Content

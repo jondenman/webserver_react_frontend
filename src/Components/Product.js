@@ -11,7 +11,10 @@ const Product = ({title, description, url, alt, id}) => {
             cover={<img
                     alt={alt}
                     src={url}
+                    width={300}
+                    height={200}
                     />}
+            key={id}
         >
             <Meta title={title} description={description}/>
             <Link to={`/products/${id}`}>

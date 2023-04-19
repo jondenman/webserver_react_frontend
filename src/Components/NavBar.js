@@ -1,6 +1,6 @@
 import { Menu } from 'antd';
 import MenuItem from 'antd/es/menu/MenuItem';
-import { SmileOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
@@ -21,8 +21,8 @@ const NavBar = () => {
                     <Link to="/about">About</Link>
                 </MenuItem>
                 <MenuItem key='Profile' style={{ marginLeft: 'auto' }}>
-                    <Link to="/profile">
-                        <SmileOutlined />
+                    <Link to="/products/add">
+                        <PlusCircleOutlined />
                     </Link>
                 </MenuItem>
             </Menu>

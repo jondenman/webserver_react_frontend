@@ -1,17 +1,26 @@
 import { Card, Space, Input } from 'antd';
 import { EditOutlined, DeleteOutlined, SaveOutlined } from '@ant-design/icons';
 import { useState } from 'react';
+import api from '../api/services/ProductService';
+import AddEditForm from './AddEditForm';
 
 const { Meta } = Card;
 
 const ProductDetail = ({title, description, url, alt, id}) => {
     const [editing, setEditing] = useState(false);
-    const [notFound, setNotFound] = useState(false);
+    const [deleted, setDeleted] = useState(false);
+
+    const deleteProduct = (id) => {
+        api.deleteProduct(id);
+        setDeleted(true);
+    }
+
+    const productToAddEdit = ({url: {url}})
 
     return (
         <>
             {
-                !editing &&
+                !editing && !deleted &&
                 <Card
                     style={{margin:10}}
                     hoverable
@@ -22,24 +31,20 @@ const ProductDetail = ({title, description, url, alt, id}) => {
                     >
                     <Meta title={title} description={description}/>
                     <Space size={4} style={{float: 'right'}}>
-                        <DeleteOutlined style={{float: 'right'}}/>
+                        <DeleteOutlined style={{float: 'right'}} onClick={() => deleteProduct(id)}/>
                         <EditOutlined style={{float: 'right'}} onClick={() => setEditing(true)} />
                     </Space>
                 </Card>
             }
             {
                 editing &&
-                <Card
-                    style={{margin:10}}
-                    hoverable
-                    cover={<div style={{padding: 10}}> 
-                            <Input placeholder='Image URL'></Input> 
-                            <Input placeholder='Title'></Input>
-                            <Input placeholder='Description'></Input>
-                           </div>}
-                >
-                    <SaveOutlined style={{float: 'right'}} onClick={() => setEditing(false)}/>
+                <Card>
+                    <AddEditForm url={url} title={title} description={description} id={id}/>
                 </Card>
+            }
+            {
+                deleted &&
+                <h1>The product has been deleted.</h1>
             }
         </>
     )

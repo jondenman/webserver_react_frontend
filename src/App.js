@@ -4,9 +4,9 @@ import CardGallery from './Components/CardGallery';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import Home from './Components/Home';
 import About from './Components/About';
-import Profile from './Components/Profile';
 import ProductPage from './Components/ProductPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AddProductPage from './Components/AddProductPage';
 
 const { Header, Content, Footer } = Layout;
 const queryClient = new QueryClient()
@@ -25,7 +25,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/products/add" element={<AddProductPage />} />
           <Route path="/products/:id" element={<ProductPage />} />
         </Routes>
         </Layout>

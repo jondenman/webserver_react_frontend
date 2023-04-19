@@ -4,14 +4,11 @@ import Product from './Product';
 import { useEffect, useState } from 'react';
 import api from '../api/services/ProductService';
 
-const { Meta } = Card;
-
 const CardGallery = () => {
     const [products, setProducts] = useState();
-    const [isLoaded, setIsLoaded] = useState(false);
+
     const afterComplete = (resData) => {
         setProducts(resData);
-        setIsLoaded(true);
     }
 
     useEffect(() => {
@@ -23,7 +20,7 @@ const CardGallery = () => {
             <Row gutter={16}>
                 {products ?
                     products.map((card, ndx) =>
-                        <Col span={8} xs={24} sm={12} md={8}>
+                        <Col span={8} xs={24} sm={12} md={8} lg={6} key={card.id}>
                             <Product title={card.name}
                             description={card.description}
                             url={card.image_url}

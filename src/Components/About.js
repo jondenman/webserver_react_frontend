@@ -14,7 +14,7 @@ export default () =>
                 Welcome to my ecommerce template site 
             </h1>
             <h3>
-                It's built using React, Django, and PostgreSQL
+                It's built using React, Ant Design, Django, and PostgreSQL
             </h3>
         </Content>
     </>
